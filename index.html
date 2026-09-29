@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan Peguero — Software Engineering Portfolio</title>
+  <meta name="description" content="Software engineering portfolio of Ryan Peguero. Featured work: Laura Taffur Beauty, ClientFlow, and Travlr Getaways.">
+  <meta name="theme-color" content="#f6f3ee">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="nav" data-nav>
+    <a class="mark" href="#top" aria-label="Ryan Peguero, back to top"><span>RP</span></a>
+    <nav class="nav-links" id="site-nav">
+      <a href="#work">Featured</a>
+      <a href="#stack">Stack</a>
+    </nav>
+    <div class="nav-out">
+      <a href="https://github.com/rypeguero" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr">Menu</span>
+      <i></i><i></i>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="portrait" src="images/avatar.jpg?v=2" alt="Portrait of Ryan Peguero" width="640" height="800">
+      <div class="hero-copy">
+        <p class="kicker">Software engineering portfolio</p>
+        <h1>
+          <span>Ryan</span>
+          <em>Peguero</em>
+        </h1>
+        <p class="lede">
+          I build the interfaces and the services behind them. Three products lead this page: a studio site, a client app, and a travel catalog.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#work">See the products</a>
+          <a class="btn btn-ghost" href="https://github.com/rypeguero" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+        <dl class="profile">
+          <div><dt>Focus</dt><dd>Product interfaces and full-stack apps</dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/rypeguero" target="_blank" rel="noreferrer">rypeguero</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">in/ryan-peguero</a></dd></div>
+          <div><dt>Featured</dt><dd>Laura Taffur Beauty, ClientFlow, Travlr Getaways</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Featured</p>
+          <h2>The main builds.</h2>
+        </div>
+      </div>
+
+      <article class="feature" id="laura">
+        <header class="feature-head">
+          <p class="case-index">01 · Private</p>
+          <h3>Laura Taffur <em>Beauty</em></h3>
+          <p>A studio site in Spanish. Photos, prices, a makeup course, and a way to book.</p>
+        </header>
+
+        <div class="explain">
+          <ul class="facts">
+            <li>WhatsApp QR for personal appointments.</li>
+            <li>Company inquiries open the visitor’s email.</li>
+            <li>On a phone, the menu slides in from the left.</li>
+          </ul>
+          <div>
+            <ol class="pages">
+              <li><strong>Inicio</strong> Collage and intro</li>
+              <li><strong>Servicios</strong> Flyer and prices</li>
+              <li><strong>Portafolio</strong> Makeup and brows</li>
+              <li><strong>Automaquillaje</strong> Self-makeup course</li>
+              <li><strong>Citas</strong> Booking</li>
+              <li><strong>Contacto</strong> Email and socials</li>
+            </ol>
+            <ul class="tags">
+              <li>React 19</li><li>Vite</li><li>React Router</li><li>Tailwind CSS 4</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="stage" data-gallery>
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span data-path>inicio</span>
+            </div>
+            <button type="button" class="shot" data-open>
+              <img src="images/laura-home.png" alt="Laura Taffur Beauty home page with a pink background, logo, and a three-photo collage">
+            </button>
+          </div>
+          <div class="thumbs">
+            <button type="button" class="is-on" data-src="images/laura-home.png" data-alt="Laura Taffur Beauty home page with a pink background, logo, and a three-photo collage" data-caption="Home — collage and introduction">
+              <img src="images/laura-home.png" alt="">
+            </button>
+            <button type="button" data-src="images/laura-servicios.png" data-alt="Servicios page with service flyers and a price list" data-caption="Servicios — flyer and prices">
+              <img src="images/laura-servicios.png" alt="">
+            </button>
+            <button type="button" data-src="images/laura-portafolio.png" data-alt="Portafolio page with a makeup photo gallery" data-caption="Portafolio — makeup and brows">
+              <img src="images/laura-portafolio.png" alt="">
+            </button>
+            <button type="button" data-src="images/laura-citas.png" data-alt="Citas page with a WhatsApp QR code and a button to start a chat" data-caption="Citas — WhatsApp booking">
+              <img src="images/laura-citas.png" alt="">
+            </button>
+            <button type="button" data-src="images/laura-curso.png" data-alt="Automaquillaje course page" data-caption="Automaquillaje — self-makeup course">
+              <img src="images/laura-curso.png" alt="">
+            </button>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature" id="clientflow">
+        <header class="feature-head">
+          <p class="case-index">02 · Private</p>
+          <h3>Client<em>Flow</em></h3>
+          <p>Clients, the day’s schedule, requests, and payments. One app for a small service business.</p>
+        </header>
+
+        <div class="explain">
+          <ul class="facts">
+            <li>Home shows today’s appointments and what’s still unpaid.</li>
+            <li>Requests move from New to Booked to Completed.</li>
+            <li>Stripe marks an invoice sent. FastAPI checks that the API is up.</li>
+          </ul>
+          <div>
+            <ol class="pages">
+              <li><strong>Home</strong> Today’s brief</li>
+              <li><strong>Schedule</strong> Finish or cancel a visit</li>
+              <li><strong>Clients</strong> Search and notes</li>
+              <li><strong>Services</strong> Time and price</li>
+              <li><strong>Requests</strong> The pipeline</li>
+              <li><strong>Payments</strong> Paid, sent, overdue</li>
+            </ol>
+            <ul class="tags">
+              <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>FastAPI</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="stage" data-gallery>
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span data-path>landing</span>
+            </div>
+            <button type="button" class="shot" data-open>
+              <img src="images/crm-landing.png" alt="ClientFlow landing page with the headline What your business needs, in one place, and a daily brief card">
+            </button>
+          </div>
+          <div class="thumbs">
+            <button type="button" class="is-on" data-src="images/crm-landing.png" data-alt="ClientFlow landing page with the headline What your business needs, in one place, and a daily brief card" data-caption="Landing page">
+              <img src="images/crm-landing.png" alt="">
+            </button>
+            <button type="button" data-src="images/crm-dashboard.png" data-alt="ClientFlow home screen with today's appointments, client and payment counts, and the day's schedule" data-caption="Demo home — today’s appointments and counts">
+              <img src="images/crm-dashboard.png" alt="">
+            </button>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature" id="travlr">
+        <header class="feature-head">
+          <p class="case-index">03 · Public</p>
+          <h3>Travlr <em>Getaways</em></h3>
+          <p>A beach-resort site. Home, rooms, meals, and a travel catalog of dive sites.</p>
+        </header>
+
+        <div class="explain">
+          <ul class="facts">
+            <li>The customer pages are Handlebars, served by Express.</li>
+            <li>Travel lists each dive site with a photo and a short writeup.</li>
+            <li>MongoDB stores the trips. The Angular admin is behind a login.</li>
+          </ul>
+          <div>
+            <ol class="pages">
+              <li><strong>Home</strong> The sound of the sea</li>
+              <li><strong>Travel</strong> Dive sites</li>
+              <li><strong>Rooms</strong> Places to stay</li>
+              <li><strong>Meals</strong> Dining</li>
+              <li><strong>News</strong> Latest posts</li>
+              <li><strong>About</strong> Contact</li>
+            </ol>
+            <ul class="tags">
+              <li>Node</li><li>Express</li><li>Handlebars</li><li>MongoDB</li><li>Angular</li><li>JWT</li>
+            </ul>
+            <a class="text-link" href="https://github.com/rypeguero/cs465-full-stack-development" target="_blank" rel="noreferrer">Repository</a>
+          </div>
+        </div>
+
+        <figure class="stage" data-gallery>
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span data-path>home</span>
+            </div>
+            <button type="button" class="shot" data-open>
+              <img src="images/travlr-home.png" alt="Travlr Getaways homepage with the logo, navigation, and a beach hero titled The Sound of the Sea">
+            </button>
+          </div>
+          <div class="thumbs">
+            <button type="button" class="is-on" data-src="images/travlr-home.png" data-alt="Travlr Getaways homepage with the logo, navigation, and a beach hero titled The Sound of the Sea" data-caption="Homepage">
+              <img src="images/travlr-home.png" alt="">
+            </button>
+            <button type="button" data-src="images/travlr-travel.png" data-alt="Travlr Getaways travel catalog listing Gale Reef, Dawson's Reef, and Claire's Reef with dive photos" data-caption="Travel catalog">
+              <img src="images/travlr-travel.png" alt="">
+            </button>
+          </div>
+        </figure>
+      </article>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Stack</p>
+          <h2>What these projects are written in.</h2>
+        </div>
+      </div>
+      <div class="stack-grid">
+        <article>
+          <h3>Interfaces</h3>
+          <ul>
+            <li>React, TypeScript, Vite</li>
+            <li>Tailwind CSS, React Router</li>
+            <li>Angular, Handlebars</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Services</h3>
+          <ul>
+            <li>Node, Express, FastAPI</li>
+            <li>MongoDB, PostgresSQL</li>
+            <li>JWT</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p class="mark-inline">Ryan Peguero</p>
+      <p>Software engineering portfolio. Laura Taffur Beauty and ClientFlow are private. Travlr Getaways is on <a href="https://github.com/rypeguero/cs465-full-stack-development" target="_blank" rel="noreferrer">GitHub</a>.</p>
+    </div>
+    <a class="btn btn-solid" href="#work">Back to the products</a>
+  </footer>
+
+  <div class="lightbox" hidden>
+    <button type="button" class="lb-close" aria-label="Close screenshot">Close</button>
+    <button type="button" class="lb-prev" aria-label="Previous screenshot">Prev</button>
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button type="button" class="lb-next" aria-label="Next screenshot">Next</button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
