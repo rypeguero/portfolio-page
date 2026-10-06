@@ -27,7 +27,7 @@ const onScroll = () => {
 onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
-const sections = ["work", "stack"]
+const sections = ["work", "cybersecurity", "stack"]
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 
