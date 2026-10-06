@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ryan Peguero — Software Engineering Portfolio</title>
-  <meta name="description" content="Software engineering portfolio of Ryan Peguero. Featured work: Laura Taffur Beauty, ClientFlow, and Travlr Getaways.">
+  <title>Ryan Peguero — Software Engineering &amp; Cybersecurity Portfolio</title>
+  <meta name="description" content="Ryan Peguero’s software engineering and cybersecurity portfolio: full-stack applications, honeypot investigations, and vulnerability remediation labs.">
   <meta name="theme-color" content="#f6f3ee">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,7 @@
     <a class="mark" href="#top" aria-label="Ryan Peguero, back to top"><span>RP</span></a>
     <nav class="nav-links" id="site-nav">
       <a href="#work">Featured</a>
+      <a href="#cybersecurity">Cybersecurity</a>
       <a href="#stack">Stack</a>
     </nav>
     <div class="nav-out">
@@ -35,13 +36,13 @@
     <section class="hero">
       <img class="portrait" src="images/avatar.jpg?v=2" alt="Portrait of Ryan Peguero" width="640" height="800">
       <div class="hero-copy">
-        <p class="kicker">Software engineering portfolio</p>
+        <p class="kicker">Software engineering &amp; cybersecurity</p>
         <h1>
           <span>Ryan</span>
           <em>Peguero</em>
         </h1>
         <p class="lede">
-          I build the interfaces and the services behind them. Three products lead this page: a studio site, a client app, and a travel catalog.
+          I build web applications and explore how to secure systems. My work spans product interfaces, full-stack services, and hands-on cybersecurity labs.
         </p>
         <div class="hero-actions">
           <a class="btn btn-solid" href="#work">See the products</a>
@@ -223,6 +224,40 @@
       </article>
     </section>
 
+
+    <section class="section" id="cybersecurity" aria-labelledby="cybersecurity-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Cybersecurity</p>
+          <h2 id="cybersecurity-title">Investigate. Harden. Validate.</h2>
+        </div>
+        <p class="section-note">Hands-on defensive security labs: evidence, remediation scripts, and documented findings.</p>
+      </div>
+      <div class="more-grid">
+        <article class="mini">
+          <p class="case-index">01 · Security monitoring lab</p>
+          <h3>Honeypot &amp; SIEM Analysis</h3>
+          <p>Deployed a T-Pot honeypot and investigated internet-facing telemetry in Elastic and Kibana. Five reports cover scanning, SSH credential guessing, SIP/VoIP activity, and captured commands, with evidence and remediation recommendations.</p>
+          <ul class="tags"><li>T-Pot</li><li>Elastic</li><li>Kibana</li><li>Suricata</li><li>Linux</li></ul>
+          <a class="text-link" href="https://github.com/rypeguero/honeypot-siem-lab" target="_blank" rel="noreferrer">Explore the lab &amp; reports</a>
+        </article>
+        <article class="mini">
+          <p class="case-index">02 · Remediation lab</p>
+          <h3>Vulnerability Remediation Toolkit</h3>
+          <p>Built PowerShell and Bash scripts for Windows and Linux hardening. Covers DISA STIG controls, SMB signing, TLS configuration, software updates, and validation steps that confirm each change.</p>
+          <ul class="tags"><li>PowerShell</li><li>Bash</li><li>DISA STIG</li><li>Windows</li><li>Linux</li></ul>
+          <a class="text-link" href="https://github.com/rypeguero/Vulnerability-Remediations" target="_blank" rel="noreferrer">View the remediation scripts</a>
+        </article>
+        <article class="mini">
+          <p class="case-index">03 · Azure lab simulation</p>
+          <h3>Vulnerability Management Program</h3>
+          <p>Simulated a complete program from policy and authenticated scanning to prioritization, change planning, remediation, and validation. Follow-up scans documented a reduction from 30 findings to 6 in the lab.</p>
+          <ul class="tags"><li>Tenable</li><li>Azure</li><li>PowerShell</li><li>Windows Server</li></ul>
+          <a class="text-link" href="https://github.com/rypeguero/Vulnerability-Management-Program-Implementation" target="_blank" rel="noreferrer">View the program &amp; scan results</a>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="stack">
       <div class="section-head">
         <div>
@@ -254,7 +289,7 @@
   <footer class="footer">
     <div>
       <p class="mark-inline">Ryan Peguero</p>
-      <p>Software engineering portfolio. Laura Taffur Beauty and ClientFlow are private. Travlr Getaways is on <a href="https://github.com/rypeguero/cs465-full-stack-development" target="_blank" rel="noreferrer">GitHub</a>.</p>
+      <p>Software engineering and cybersecurity portfolio. Laura Taffur Beauty and ClientFlow are private. Travlr Getaways is on <a href="https://github.com/rypeguero/cs465-full-stack-development" target="_blank" rel="noreferrer">GitHub</a>.</p>
     </div>
     <a class="btn btn-solid" href="#work">Back to the products</a>
   </footer>
