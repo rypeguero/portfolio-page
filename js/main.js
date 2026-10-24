@@ -18,7 +18,7 @@ const projects = {
       ['Next: a dashboard to view, approve, and decline requests.', 'Próximo paso: un panel para ver, aprobar y rechazar solicitudes.'],
       ['Currently runs locally. Requests await confirmation; submitting one does not reserve a time slot.', 'Por ahora funciona de forma local. Las solicitudes requieren confirmación; enviarlas no reserva un horario.']
     ],
-    images: [{src:'images/service-studio.jpg',caption:['Current front-end preview · In development','Vista actual del sitio · En desarrollo'],alt:['Service Studio booking homepage','Página de inicio para solicitar citas de Service Studio']}],
+    images: [{src:'images/service-studio.jpg?v=2',caption:['Current front-end preview · In development','Vista actual del sitio · En desarrollo'],alt:['Service Studio booking homepage','Página de inicio para solicitar citas de Service Studio']}],
     links: [{url:'https://github.com/rypeguero/crm-app',label:['Follow the build on GitHub ↗','Ver el desarrollo en GitHub ↗']}]
   },
   travlr: {
