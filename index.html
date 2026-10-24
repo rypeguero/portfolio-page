@@ -3,257 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ryan Peguero — Software Engineering &amp; Cybersecurity Portfolio</title>
-  <meta name="description" content="Ryan Peguero’s software engineering and cybersecurity portfolio: websites, web applications, and hands-on security projects.">
-  <meta name="theme-color" content="#111318">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Ryan Peguero — websites, web apps, and security projects. Explore the work in English or Spanish.">
+  <title>Ryan Peguero — Developer</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#work">Skip to work</a>
-
-  <header class="nav" data-nav>
-    <a class="mark" href="#top" aria-label="Ryan Peguero, back to top"><span>RP</span></a>
-    <nav class="nav-links" id="site-nav">
-      <a href="#work">Projects</a>
-      <a href="#cybersecurity">Cybersecurity</a>
-      <a href="#stack">Tools</a>
+  <a class="skip" href="#work" data-en="Skip to projects" data-es="Saltar a proyectos">Skip to projects</a>
+  <header class="nav">
+    <a class="mark" href="#top" aria-label="Ryan Peguero">rp<span>.</span></a>
+    <nav aria-label="Main navigation" data-aria-en="Main navigation" data-aria-es="Navegación principal">
+      <a href="#work" data-en="Work" data-es="Proyectos">Work</a>
+      <a href="#contact" data-en="Let’s talk ↗" data-es="Hablemos ↗">Let’s talk ↗</a>
     </nav>
-    <div class="nav-out">
-      <a href="https://github.com/rypeguero" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">LinkedIn</a>
+    <div class="language" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
     </div>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="sr">Menu</span>
-      <i></i><i></i>
-    </button>
   </header>
-
   <main id="top">
-    <section class="hero">
-      <img class="portrait" src="images/avatar.jpg?v=2" alt="Portrait of Ryan Peguero" width="640" height="800">
-      <div class="hero-copy">
-        <p class="kicker">Software engineering &amp; cybersecurity</p>
-        <h1>
-          <span>Ryan</span>
-          <em>Peguero</em>
-        </h1>
-        <p class="lede">
-          I build websites and web apps that help people get things done. I also practice finding security problems and fixing them.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="#work">See my work</a>
-          <a class="btn btn-ghost" href="https://github.com/rypeguero" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-        <dl class="profile">
-          <div><dt>Focus</dt><dd>Websites, web apps, and security</dd></div>
-          <div><dt>GitHub</dt><dd><a href="https://github.com/rypeguero" target="_blank" rel="noreferrer">rypeguero</a></dd></div>
-          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ryan-peguero" target="_blank" rel="noreferrer">in/ryan-peguero</a></dd></div>
-          <div><dt>Featured</dt><dd>Laura Taffur Beauty, Travlr Getaways</dd></div>
-        </dl>
-      </div>
+    <section class="hero" aria-labelledby="intro-title">
+      <div class="intro"><img src="images/avatar.jpg?v=2" alt="Ryan Peguero" width="52" height="52"><p>Ryan Peguero <span data-en="Developer · English / Español" data-es="Desarrollador · English / Español">Developer · English / Español</span></p></div>
+      <h1 id="intro-title"><span data-en="Real ideas." data-es="Ideas reales.">Real ideas.</span><br><span class="accent" data-en="Made to work." data-es="Hechas realidad.">Made to work.</span></h1>
+      <p class="hero-note" data-en="Websites, web apps, and a curiosity for security." data-es="Sitios web, aplicaciones y curiosidad por la seguridad.">Websites, web apps, and a curiosity for security.</p>
+      <a class="button primary" href="#work" data-en="Explore my work ↓" data-es="Explora mis proyectos ↓">Explore my work ↓</a>
+      <span class="hero-number" aria-hidden="true">&lt;/&gt;</span>
     </section>
-
-    <section class="section" id="work">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Featured</p>
-          <h2>Websites I’ve built.</h2>
-        </div>
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="section-top"><h2 id="work-title" data-en="Selected work" data-es="Proyectos destacados">Selected work</h2><span class="hint" data-en="Pick a project. Take a closer look." data-es="Elige un proyecto y explóralo.">Pick a project. Take a closer look.</span></div>
+      <div class="filters" role="group" aria-label="Filter projects" data-aria-en="Filter projects" data-aria-es="Filtrar proyectos">
+        <button type="button" data-filter="all" aria-pressed="true" data-en="All work" data-es="Todos">All work</button>
+        <button type="button" data-filter="web" aria-pressed="false" data-en="Websites & apps" data-es="Sitios y apps">Websites & apps</button>
+        <button type="button" data-filter="security" aria-pressed="false" data-en="Security labs" data-es="Laboratorios de seguridad">Security labs</button>
       </div>
-
-      <article class="feature" id="laura">
-        <header class="feature-head">
-          <p class="case-index">01 · Live website</p>
-          <h3>Laura Taffur <em>Beauty</em></h3>
-          <p>A website for a makeup artist and content creator in Bogotá. Clients can explore her work and ask about services; brands can get in touch about collaborations.</p>
-        </header>
-
-        <div class="explain">
-          <ul class="facts">
-            <li>Service buttons open WhatsApp with a message about the service. Laura confirms appointment details in chat.</li>
-            <li>Brands can prepare a proposal and choose to send it through WhatsApp or email.</li>
-            <li>Services, makeup classes, photos, and social content come together in one website.</li>
-          </ul>
-          <div>
-            <ol class="pages">
-              <li><strong>Inicio</strong> Meet Laura and explore her work</li>
-              <li><strong>Servicios</strong> Services, prices, and makeup classes</li>
-              <li><strong>Portafolio</strong> Filterable photo gallery</li>
-              <li><strong>Contenido</strong> Videos and social profiles</li>
-              <li><strong>Marcas</strong> Brand collaborations and proposals</li>
-              <li><strong>Contacto</strong> WhatsApp, email, and social links</li>
-            </ol>
-            <ul class="tags">
-              <li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Cloudflare</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="project-actions">
-          <a class="btn btn-solid" href="https://laurataffurbeauty.com/" target="_blank" rel="noreferrer">Visit Laura’s website ↗</a>
-          <p class="note">Built with Laura’s business needs in mind. Appointments are confirmed through WhatsApp.</p>
-        </div>
-
-        <div class="project-summary" aria-label="Laura Taffur project highlights">
-          <a class="project-domain" href="https://laurataffurbeauty.com/" target="_blank" rel="noreferrer">laurataffurbeauty.com <span aria-hidden="true">↗</span></a>
-          <div class="project-highlights">
-            <div><h4>For clients</h4><p>Browse services and photos, explore makeup classes, and ask Laura about availability.</p></div>
-            <div><h4>For brands</h4><p>See her creator work and prepare a collaboration proposal to send by WhatsApp or email.</p></div>
-            <div><h4>My work</h4><p>Brought the website together around her business, from page design to contact forms and hosting.</p></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="feature" id="travlr">
-        <header class="feature-head">
-          <p class="case-index">02 · University project</p>
-          <h3>Travlr <em>Getaways</em></h3>
-          <p>A travel website where visitors can browse resort information and diving trips.</p>
-        </header>
-
-        <div class="explain">
-          <ul class="facts">
-            <li>Visitors can explore rooms, meals, and travel information.</li>
-            <li>Each diving trip includes a photo and a short description.</li>
-            <li>A separate area lets an administrator sign in and manage trip listings.</li>
-          </ul>
-          <div>
-            <ol class="pages">
-              <li><strong>Home</strong> The sound of the sea</li>
-              <li><strong>Travel</strong> Dive sites</li>
-              <li><strong>Rooms</strong> Places to stay</li>
-              <li><strong>Meals</strong> Dining</li>
-              <li><strong>News</strong> Latest posts</li>
-              <li><strong>About</strong> Contact</li>
-            </ol>
-            <ul class="tags">
-              <li>Node</li><li>Express</li><li>Handlebars</li><li>MongoDB</li><li>Angular</li><li>JWT</li>
-            </ul>
-            <a class="text-link" href="https://github.com/rypeguero/cs465-full-stack-development" target="_blank" rel="noreferrer">View the code</a>
-          </div>
-        </div>
-
-        <figure class="stage" data-gallery>
-          <div class="frame">
-            <div class="frame-bar">
-              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span data-path>home</span>
-            </div>
-            <button type="button" class="shot" data-open>
-              <img src="images/travlr-home.png" alt="Travlr Getaways homepage with the logo, navigation, and a beach hero titled The Sound of the Sea">
-            </button>
-          </div>
-          <div class="thumbs">
-            <button type="button" class="is-on" data-src="images/travlr-home.png" data-alt="Travlr Getaways homepage with the logo, navigation, and a beach hero titled The Sound of the Sea" data-caption="Homepage">
-              <img src="images/travlr-home.png" alt="">
-            </button>
-            <button type="button" data-src="images/travlr-travel.png" data-alt="Travlr Getaways travel catalog listing Gale Reef, Dawson's Reef, and Claire's Reef with dive photos" data-caption="Travel catalog">
-              <img src="images/travlr-travel.png" alt="">
-            </button>
-          </div>
-        </figure>
-      </article>
+      <p class="sr" id="filter-status" role="status" aria-live="polite"></p>
+      <div class="projects">
+        <article class="card web-card" data-kind="web">
+          <button class="project-open" type="button" data-project="laura" aria-label="Explore Laura Taffur Beauty" data-aria-en="Explore Laura Taffur Beauty" data-aria-es="Explorar Laura Taffur Beauty">
+            <div class="preview"><img src="images/laura-live.jpg" alt="Laura Taffur Beauty homepage with makeup services and a portrait of Laura" data-alt-en="Laura Taffur Beauty homepage with makeup services and a portrait of Laura" data-alt-es="Inicio de Laura Taffur Beauty con servicios de maquillaje y un retrato de Laura" width="1348" height="926"><span class="preview-action" data-en="Explore project ↗" data-es="Explorar proyecto ↗">Explore project ↗</span></div>
+            <div class="card-body"><div class="card-meta"><span data-en="Client website" data-es="Sitio para cliente">Client website</span><span class="live" data-en="Live" data-es="Publicado">Live</span></div><h3>Laura Taffur Beauty <span aria-hidden="true">↗</span></h3><p data-en="Beauty, content, and client connections." data-es="Belleza, contenido y conexión con clientes.">Beauty, content, and client connections.</p><div class="tags"><span>React</span><span>Tailwind</span><span>Cloudflare</span></div></div>
+          </button>
+        </article>
+        <article class="card web-card" data-kind="web">
+          <button class="project-open" type="button" data-project="travlr" aria-label="Explore Travlr Getaways" data-aria-en="Explore Travlr Getaways" data-aria-es="Explorar Travlr Getaways">
+            <div class="preview"><img src="images/travlr-home.png" alt="Travlr Getaways resort website" data-alt-en="Travlr Getaways resort website" data-alt-es="Sitio de viajes Travlr Getaways" width="1440" height="900" loading="lazy"><span class="preview-action" data-en="Explore project ↗" data-es="Explorar proyecto ↗">Explore project ↗</span></div>
+            <div class="card-body"><div class="card-meta"><span data-en="University project" data-es="Proyecto universitario">University project</span><span>02</span></div><h3>Travlr Getaways <span aria-hidden="true">↗</span></h3><p data-en="A place to explore your next getaway." data-es="Un lugar para descubrir tu próxima escapada.">A place to explore your next getaway.</p><div class="tags"><span>Node.js</span><span>Angular</span><span>MongoDB</span></div></div>
+          </button>
+        </article>
+        <article class="card lab-card" data-kind="security"><button type="button" class="project-open" data-project="honeypot"><div class="lab-symbol" aria-hidden="true">01 <span>⌁</span></div><div class="card-body"><div class="card-meta" data-en="Security lab" data-es="Laboratorio de seguridad">Security lab</div><h3 data-en="Inside an attack ↗" data-es="Dentro de un ataque ↗">Inside an attack ↗</h3><p data-en="A decoy system. Real attack attempts." data-es="Un sistema señuelo. Intentos de ataque reales.">A decoy system. Real attack attempts.</p><div class="tags"><span>T-Pot</span><span>Kibana</span></div></div></button></article>
+        <article class="card lab-card" data-kind="security"><button type="button" class="project-open" data-project="fixes"><div class="lab-symbol" aria-hidden="true">02 <span>+ / −</span></div><div class="card-body"><div class="card-meta" data-en="Security lab" data-es="Laboratorio de seguridad">Security lab</div><h3 data-en="Small fixes. Safer systems. ↗" data-es="Cambios pequeños. Más seguridad. ↗">Small fixes. Safer systems. ↗</h3><p data-en="Scripts that improve Windows and Linux security." data-es="Scripts para mejorar la seguridad de Windows y Linux.">Scripts that improve Windows and Linux security.</p><div class="tags"><span>PowerShell</span><span>Bash</span></div></div></button></article>
+        <article class="card lab-card" data-kind="security"><button type="button" class="project-open" data-project="scans"><div class="lab-symbol" aria-hidden="true">03 <span>30 → 6</span></div><div class="card-body"><div class="card-meta" data-en="Security lab" data-es="Laboratorio de seguridad">Security lab</div><h3 data-en="Find. Fix. Check. ↗" data-es="Encontrar. Corregir. Verificar. ↗">Find. Fix. Check. ↗</h3><p data-en="Fewer security findings, backed by follow-up scans." data-es="Menos fallos de seguridad, con resultados verificados.">Fewer security findings, backed by follow-up scans.</p><div class="tags"><span>Azure</span><span>Tenable</span></div></div></button></article>
+        <article class="card lab-card" data-kind="security"><button type="button" class="project-open" data-project="hunts"><div class="lab-symbol" aria-hidden="true">04 <span>⌕</span></div><div class="card-body"><div class="card-meta" data-en="Security lab" data-es="Laboratorio de seguridad">Security lab</div><h3 data-en="Follow the evidence ↗" data-es="Seguir las pistas ↗">Follow the evidence ↗</h3><p data-en="Tracing simulated break-ins, step by step." data-es="Investigación de ataques simulados, paso a paso.">Tracing simulated break-ins, step by step.</p><div class="tags"><span>Sentinel</span><span>Defender</span><span>KQL</span></div></div></button></article>
+      </div>
+      <details class="toolbox"><summary><span data-en="Open my toolbox" data-es="Ver mis herramientas">Open my toolbox</span><span aria-hidden="true">+</span></summary><div class="tool-list"><span>HTML / CSS</span><span>JavaScript</span><span>React</span><span>TypeScript</span><span>Python</span><span>Node.js</span><span>Git</span><span>SQL</span><span>PowerShell</span></div></details>
     </section>
-
-
-    <section class="section" id="cybersecurity" aria-labelledby="cybersecurity-title">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Cybersecurity</p>
-          <h2 id="cybersecurity-title">Finding problems. Making systems safer.</h2>
-        </div>
-        <p class="section-note">Practice projects where I investigate suspicious activity, fix security issues, and explain what I found.</p>
-      </div>
-      <div class="more-grid">
-        <article class="mini">
-          <p class="case-index">01 · Security monitoring lab</p>
-          <h3>Studying real attack attempts</h3>
-          <p>Set up a decoy system to observe attack attempts. Wrote five reports explaining what attackers tried, the evidence they left, and ways to improve protection.</p>
-          <ul class="tags"><li>T-Pot</li><li>Elastic</li><li>Kibana</li><li>Suricata</li><li>Linux</li></ul>
-          <a class="text-link" href="https://github.com/rypeguero/honeypot-siem-lab" target="_blank" rel="noreferrer">Explore the lab &amp; reports</a>
-        </article>
-        <article class="mini">
-          <p class="case-index">02 · Security fixes lab</p>
-          <h3>Scripts that fix security issues</h3>
-          <p>Wrote scripts to improve security settings on Windows and Linux. Each includes steps to check that the fix worked.</p>
-          <ul class="tags"><li>PowerShell</li><li>Bash</li><li>DISA STIG</li><li>Windows</li><li>Linux</li></ul>
-          <a class="text-link" href="https://github.com/rypeguero/Vulnerability-Remediations" target="_blank" rel="noreferrer">View the scripts</a>
-        </article>
-        <article class="mini">
-          <p class="case-index">03 · Azure lab simulation</p>
-          <h3>Finding and fixing weaknesses</h3>
-          <p>Practiced scanning a lab system, deciding which issues to fix first, and checking the results. Follow-up scans showed a drop from 30 findings to 6.</p>
-          <ul class="tags"><li>Tenable</li><li>Azure</li><li>PowerShell</li><li>Windows Server</li></ul>
-          <a class="text-link" href="https://github.com/rypeguero/Vulnerability-Management-Program-Implementation" target="_blank" rel="noreferrer">See the results</a>
-        </article>
-
-        <article class="mini">
-          <p class="case-index">04 · Attack investigation lab</p>
-          <h3>Investigating simulated attacks</h3>
-          <p>Used Microsoft security tools to investigate simulated break-ins. Traced what happened, reviewed sign-in and device records, and documented how to contain the attack and prevent it happening again.</p>
-          <ul>
-            <li><a href="https://github.com/rypeguero/logn-pacific-cyber-range/blob/main/threat-hunting/hide-your-rdp-password-spray-to-full-compromise.md" target="_blank" rel="noreferrer">Hide Your RDP: Password Spray Leads to Full Compromise</a></li>
-            <li><a href="https://github.com/rypeguero/logn-pacific-cyber-range/blob/main/threat-hunting/Nimbus%20Health%20Threat%20Hunt%20Report.md" target="_blank" rel="noreferrer">Nimbus Health: Valid-Account Compromise</a></li>
-          </ul>
-          <ul class="tags"><li>Microsoft Sentinel</li><li>Defender for Endpoint</li><li>KQL</li><li>MITRE ATT&amp;CK</li></ul>
-          <a class="text-link" href="https://github.com/rypeguero/logn-pacific-cyber-range" target="_blank" rel="noreferrer">Read the investigations</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="stack">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Tools</p>
-          <h2>What I work with.</h2>
-        </div>
-      </div>
-      <div class="stack-grid">
-        <article>
-          <h3>Building the website</h3>
-          <ul>
-            <li>HTML5, CSS3, JavaScript</li>
-            <li>React, TypeScript, Vite</li>
-            <li>Tailwind CSS, React Router</li>
-            <li>Angular, Handlebars</li>
-          </ul>
-        </article>
-        <article>
-          <h3>Behind the scenes</h3>
-          <ul>
-            <li>Python, FastAPI</li>
-            <li>Node, Express</li>
-            <li>MongoDB, PostgreSQL</li>
-            <li>JWT</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+    <section class="contact" id="contact"><p class="eyebrow" data-en="Have a project or a role in mind?" data-es="¿Tienes un proyecto o una oportunidad?">Have a project or a role in mind?</p><h2 data-en="Let’s build something." data-es="Construyamos algo.">Let’s build something.</h2><div class="contact-links"><a class="button primary" href="https://www.linkedin.com/in/ryan-peguero/" target="_blank" rel="noreferrer" data-en="Let’s connect ↗" data-es="Hablemos ↗">Let’s connect ↗</a><a class="button secondary" href="https://github.com/rypeguero" target="_blank" rel="noreferrer" data-en="Explore GitHub ↗" data-es="Explorar GitHub ↗">Explore GitHub ↗</a></div></section>
   </main>
-
-  <footer class="footer">
-    <div>
-      <p class="mark-inline">Ryan Peguero</p>
-      <p>Explore my websites and security projects, or find more of my work on <a href="https://github.com/rypeguero" target="_blank" rel="noreferrer">GitHub</a>.</p>
-    </div>
-    <a class="btn btn-solid" href="#work">Back to my work</a>
-  </footer>
-
-  <div class="lightbox" hidden>
-    <button type="button" class="lb-close" aria-label="Close screenshot">Close</button>
-    <button type="button" class="lb-prev" aria-label="Previous screenshot">Prev</button>
-    <figure>
-      <img alt="">
-      <figcaption></figcaption>
-    </figure>
-    <button type="button" class="lb-next" aria-label="Next screenshot">Next</button>
-  </div>
-
-  <script src="js/main.js"></script>
+  <footer><span>© 2026 Ryan Peguero</span><a href="#top" data-en="Back to top ↑" data-es="Volver arriba ↑">Back to top ↑</a></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><p id="dialog-category"></p><button class="close" type="button" data-en="Close ×" data-es="Cerrar ×">Close ×</button></div><div class="dialog-content"><h2 id="dialog-title"></h2><p id="dialog-description"></p><div id="dialog-gallery"><div class="dialog-image"><img id="dialog-image" alt=""></div><div class="gallery-controls"><button type="button" id="previous" aria-label="Previous screenshot" data-aria-en="Previous screenshot" data-aria-es="Captura anterior">←</button><p id="gallery-caption" aria-live="polite"></p><button type="button" id="next" aria-label="Next screenshot" data-aria-en="Next screenshot" data-aria-es="Captura siguiente">→</button></div></div><ul id="dialog-points"></ul><div id="dialog-links"></div></div></dialog>
 </body>
 </html>

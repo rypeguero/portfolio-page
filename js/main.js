@@ -1,198 +1,102 @@
-const nav = document.querySelector("[data-nav]");
-const toggle = document.querySelector(".nav-toggle");
-const links = document.querySelector(".nav-links");
-const filterButtons = document.querySelectorAll("[data-filter]");
-const cases = document.querySelectorAll(".case, .mini");
-const lightbox = document.querySelector(".lightbox");
-const lightboxImg = lightbox.querySelector("img");
-const lightboxCap = lightbox.querySelector("figcaption");
-const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-toggle.addEventListener("click", () => {
-  const open = links.classList.toggle("is-open");
-  toggle.setAttribute("aria-expanded", String(open));
-});
-
-links.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
-    links.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
-  }
-});
-
-const onScroll = () => {
-  nav.classList.toggle("is-stuck", window.scrollY > 8);
+const projects = {
+  laura: {
+    title: 'Laura Taffur Beauty', category: ['Client website · Live', 'Sitio para cliente · Publicado'],
+    description: ['A home for Laura’s beauty business and creator work in Bogotá.', 'Un espacio para el negocio de belleza y el contenido de Laura en Bogotá.'],
+    points: [
+      ['Services, makeup classes, and a photo gallery.', 'Servicios, clases de maquillaje y galería de fotos.'],
+      ['Clients ask about availability through WhatsApp. Laura confirms the appointment in chat.', 'Los clientes consultan disponibilidad por WhatsApp. Laura confirma la cita en el chat.'],
+      ['Brands prepare proposals to send through WhatsApp or email.', 'Las marcas preparan propuestas para enviar por WhatsApp o correo.']
+    ],
+    images: [{src:'images/laura-live.jpg', caption:['Live homepage', 'Página de inicio actual'], alt:['Laura Taffur Beauty homepage with a portrait and service links', 'Inicio de Laura Taffur Beauty con retrato y enlaces a servicios']}],
+    links: [{url:'https://laurataffurbeauty.com/', label:['Visit website ↗', 'Visitar sitio ↗']}]
+  },
+  travlr: {
+    title:'Travlr Getaways', category:['University project', 'Proyecto universitario'],
+    description:['A travel website with a separate area to manage trips.', 'Un sitio de viajes con un área independiente para gestionar los destinos.'],
+    points:[['Browse rooms, meals, and diving trips.', 'Explora habitaciones, comidas y viajes de buceo.'], ['An administrator can sign in and manage trip listings.', 'Un administrador puede iniciar sesión y gestionar los viajes.']],
+    images:[{src:'images/travlr-home.png',caption:['Homepage · 1 / 2', 'Inicio · 1 / 2'],alt:['Travlr Getaways homepage', 'Página de inicio de Travlr Getaways']},{src:'images/travlr-travel.png',caption:['Travel catalog · 2 / 2', 'Catálogo de viajes · 2 / 2'],alt:['Travlr diving trip catalog', 'Catálogo de viajes de buceo de Travlr']}],
+    links:[{url:'https://github.com/rypeguero/cs465-full-stack-development',label:['View code ↗', 'Ver código ↗']}]
+  },
+  honeypot:{title:['Inside an attack','Dentro de un ataque'],category:['Security lab','Laboratorio de seguridad'],description:['A decoy system used to observe real attack attempts.', 'Un sistema señuelo para observar intentos de ataque reales.'],points:[['Five reports document what attackers tried and the evidence they left.', 'Cinco informes documentan qué intentaron los atacantes y qué pistas dejaron.'],['Tools: T-Pot, Elastic, Kibana, and Linux.', 'Herramientas: T-Pot, Elastic, Kibana y Linux.']],links:[{url:'https://github.com/rypeguero/honeypot-siem-lab',label:['Read the reports ↗','Leer informes ↗']}]},
+  fixes:{title:['Small fixes. Safer systems.','Cambios pequeños. Más seguridad.'],category:['Security lab','Laboratorio de seguridad'],description:['Scripts to improve security settings on Windows and Linux.', 'Scripts para mejorar la configuración de seguridad en Windows y Linux.'],points:[['Includes update and configuration fixes.', 'Incluye correcciones de configuración y actualizaciones.'],['Validation steps help check that each fix worked.', 'Pasos de verificación para comprobar que cada cambio funcionó.']],links:[{url:'https://github.com/rypeguero/Vulnerability-Remediations',label:['Explore scripts ↗','Explorar scripts ↗']}]},
+  scans:{title:['Find. Fix. Check.','Encontrar. Corregir. Verificar.'],category:['Security lab','Laboratorio de seguridad'],description:['A practice workflow for finding and fixing security issues.', 'Un ejercicio para encontrar y corregir fallos de seguridad.'],points:[['Scanned the lab, prioritized issues, applied fixes, and scanned again.', 'Analicé el laboratorio, prioricé los fallos, apliqué correcciones y volví a analizar.'],['Follow-up scans reduced lab findings from 30 to 6.', 'Los análisis posteriores mostraron una reducción de 30 a 6 hallazgos en el laboratorio.']],links:[{url:'https://github.com/rypeguero/Vulnerability-Management-Program-Implementation',label:['See the results ↗','Ver resultados ↗']}]},
+  hunts:{title:['Follow the evidence','Seguir las pistas'],category:['Security lab','Laboratorio de seguridad'],description:['Investigating simulated break-ins with Microsoft security tools.', 'Investigación de ataques simulados con herramientas de seguridad de Microsoft.'],points:[['Reviewed sign-ins and device records to reconstruct what happened.', 'Revisé registros de acceso y de dispositivos para reconstruir lo ocurrido.'],['Documented findings and recommended next steps.', 'Documenté los hallazgos y las acciones recomendadas.']],links:[{url:'https://github.com/rypeguero/logn-pacific-cyber-range',label:['Explore investigations ↗','Explorar investigaciones ↗']},{url:'https://github.com/rypeguero/logn-pacific-cyber-range/blob/main/threat-hunting/hide-your-rdp-password-spray-to-full-compromise.md',label:['Read an investigation ↗','Leer una investigación ↗']}]}
 };
 
-onScroll();
-window.addEventListener("scroll", onScroll, { passive: true });
+let language = 'en';
+try { const saved = localStorage.getItem('portfolio-language'); if (saved === 'es' || saved === 'en') language = saved; } catch {}
+const dialog = document.getElementById('project-dialog');
+let activeProject = null;
+let imageIndex = 0;
+let opener = null;
+const translated = (value) => Array.isArray(value) ? value[language === 'es' ? 1 : 0] : value;
+let activeFilter = 'all';
 
-const sections = ["work", "cybersecurity", "stack"]
-  .map((id) => document.getElementById(id))
-  .filter(Boolean);
-
-const spy = () => {
-  const mark = window.scrollY + 120;
-  let current = sections[0];
-  sections.forEach((section) => {
-    if (section.offsetTop <= mark) current = section;
-  });
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.classList.toggle("is-current", link.getAttribute("href") === `#${current.id}`);
-  });
-};
-
-spy();
-window.addEventListener("scroll", spy, { passive: true });
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    filterButtons.forEach((item) => {
-      const on = item === button;
-      item.classList.toggle("is-on", on);
-      item.setAttribute("aria-pressed", String(on));
-    });
-    cases.forEach((item) => {
-      const show = filter === "all" || item.dataset.kind === filter;
-      item.classList.toggle("is-hidden", !show);
-    });
-    document.querySelectorAll("#labs, #more").forEach((section) => {
-      const visible = [...section.querySelectorAll(".case, .mini")].some(
-        (item) => !item.classList.contains("is-hidden")
-      );
-      section.classList.toggle("is-dim", !visible);
-    });
-  });
-});
-
-document.querySelectorAll(".thumbs button, .phone, .shot, .mini-shot").forEach((button) => {
-  if (!button.getAttribute("aria-label")) {
-    button.setAttribute("aria-label", button.dataset.caption || button.querySelector("img")?.alt || "Open screenshot");
-  }
-});
-
-document.querySelectorAll("[data-gallery]").forEach((gallery) => {
-  const thumbs = gallery.querySelectorAll(".thumbs button");
-  const shot = gallery.querySelector(".shot img");
-  const path = gallery.querySelector("[data-path]");
-  if (!thumbs.length || !shot) return;
-
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      thumbs.forEach((item) => item.classList.remove("is-on"));
-      thumb.classList.add("is-on");
-      shot.src = thumb.dataset.src;
-      shot.alt = thumb.dataset.alt;
-      if (path) {
-        const file = thumb.dataset.src.split("/").pop();
-        path.textContent = file;
-      }
-    });
-  });
-});
-
-let galleryItems = [];
-let galleryIndex = 0;
-let lastFocus = null;
-
-const renderLightbox = () => {
-  const item = galleryItems[galleryIndex];
-  if (!item) return;
-  lightboxImg.src = item.src;
-  lightboxImg.alt = item.alt;
-  lightboxCap.textContent = item.caption;
-  const single = galleryItems.length < 2;
-  lightbox.querySelector(".lb-prev").hidden = single;
-  lightbox.querySelector(".lb-next").hidden = single;
-};
-
-const collectGallery = (origin) => {
-  const group = origin.closest("[data-gallery]");
-  if (!group) {
-    return [{
-      src: origin.dataset.src || origin.querySelector("img")?.src,
-      alt: origin.dataset.alt || origin.querySelector("img")?.alt || "",
-      caption: origin.dataset.caption || ""
-    }];
-  }
-
-  const buttons = group.querySelectorAll(".thumbs button, .phone");
-  if (!buttons.length) {
-    const img = group.querySelector(".shot img");
-    return [{
-      src: origin.dataset.src || img.src,
-      alt: origin.dataset.alt || img.alt,
-      caption: origin.dataset.caption || group.querySelector("[data-path]")?.textContent || ""
-    }];
-  }
-
-  return [...buttons].map((button) => ({
-    src: button.dataset.src,
-    alt: button.dataset.alt,
-    caption: button.dataset.caption
-  }));
-};
-
-const openLightbox = (origin) => {
-  galleryItems = collectGallery(origin);
-  const src = origin.dataset.src || origin.querySelector("img")?.getAttribute("src");
-  galleryIndex = Math.max(0, galleryItems.findIndex((item) => src && item.src.endsWith(src.split("/").pop())));
-  renderLightbox();
-  lastFocus = origin;
-  lightbox.hidden = false;
-  document.body.style.overflow = "hidden";
-  lightbox.querySelector(".lb-close").focus();
-};
-
-const closeLightbox = () => {
-  lightbox.hidden = true;
-  document.body.style.overflow = "";
-  lightboxImg.removeAttribute("src");
-  if (lastFocus) lastFocus.focus();
-};
-
-const step = (delta) => {
-  galleryIndex = (galleryIndex + delta + galleryItems.length) % galleryItems.length;
-  renderLightbox();
-};
-
-document.addEventListener("click", (event) => {
-  const opener = event.target.closest("[data-open]");
-  if (!opener) return;
-  openLightbox(opener);
-});
-
-lightbox.querySelector(".lb-close").addEventListener("click", closeLightbox);
-lightbox.querySelector(".lb-prev").addEventListener("click", () => step(-1));
-lightbox.querySelector(".lb-next").addEventListener("click", () => step(1));
-
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) closeLightbox();
-});
-
-document.addEventListener("keydown", (event) => {
-  if (lightbox.hidden) return;
-  if (event.key === "Escape") closeLightbox();
-  if (event.key === "ArrowRight") step(1);
-  if (event.key === "ArrowLeft") step(-1);
-});
-
-if (!reduced) {
-  const revealables = document.querySelectorAll(".case, .mini, .stack-grid article");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.animate(
-          [
-            { opacity: 0.01, transform: "translateY(16px)" },
-            { opacity: 1, transform: "translateY(0)" }
-          ],
-          { duration: 560, easing: "cubic-bezier(.2,.7,.2,1)", fill: "both" }
-        );
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealables.forEach((node) => observer.observe(node));
+function updateCount() {
+  const count = [...document.querySelectorAll('.card')].filter(card => !card.hidden).length;
+  document.getElementById('filter-status').textContent = language === 'es' ? `${count} proyectos visibles` : `${count} projects shown`;
 }
+
+function setLanguage(next) {
+  language = next;
+  document.documentElement.lang = next;
+  document.title = next === 'es' ? 'Ryan Peguero — Desarrollador' : 'Ryan Peguero — Developer';
+  document.querySelectorAll('[data-en]').forEach(node => { node.textContent = node.dataset[next]; });
+  document.querySelectorAll('[data-aria-en]').forEach(node => { node.setAttribute('aria-label', node.getAttribute(`data-aria-${next}`)); });
+  document.querySelectorAll('[data-alt-en]').forEach(node => { node.alt = node.getAttribute(`data-alt-${next}`); });
+  document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === next)));
+  try { localStorage.setItem('portfolio-language', next); } catch {}
+  updateCount();
+  if (activeProject) renderProject();
+}
+
+function renderImage() {
+  const images = projects[activeProject].images || [];
+  document.getElementById('dialog-gallery').hidden = !images.length;
+  if (!images.length) { document.getElementById('dialog-image').removeAttribute('src'); return; }
+  const current = images[imageIndex];
+  const image = document.getElementById('dialog-image');
+  image.src = current.src;
+  image.alt = translated(current.alt);
+  document.getElementById('gallery-caption').textContent = translated(current.caption);
+  document.getElementById('previous').hidden = images.length < 2;
+  document.getElementById('next').hidden = images.length < 2;
+}
+
+function renderProject() {
+  const project = projects[activeProject];
+  document.getElementById('dialog-title').textContent = translated(project.title);
+  document.getElementById('dialog-category').textContent = translated(project.category);
+  document.getElementById('dialog-description').textContent = translated(project.description);
+  const points = document.getElementById('dialog-points');
+  points.replaceChildren(...project.points.map(text => { const li = document.createElement('li'); li.textContent = translated(text); return li; }));
+  const links = document.getElementById('dialog-links');
+  links.replaceChildren(...project.links.map((link, index) => { const a = document.createElement('a'); a.href = link.url; a.target = '_blank'; a.rel = 'noreferrer'; a.className = `button ${index === 0 ? 'primary' : 'secondary'}`; a.textContent = translated(link.label); return a; }));
+  renderImage();
+}
+
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+  activeFilter = button.dataset.filter;
+  document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  document.querySelectorAll('.card').forEach(card => { card.hidden = activeFilter !== 'all' && card.dataset.kind !== activeFilter; });
+  updateCount();
+}));
+document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+  activeProject = button.dataset.project;
+  imageIndex = 0;
+  opener = button;
+  renderProject();
+  dialog.showModal();
+  document.body.style.overflow = 'hidden';
+  dialog.scrollTop = 0;
+  dialog.querySelector('.close').focus();
+}));
+dialog.querySelector('.close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('close', () => { document.body.style.overflow = ''; activeProject = null; opener?.focus(); });
+dialog.addEventListener('click', event => { if (event.target !== dialog) return; const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close(); });
+function stepImage(delta) { const length = projects[activeProject]?.images?.length || 0; if (length > 1) { imageIndex = (imageIndex + delta + length) % length; renderImage(); } }
+document.getElementById('previous').addEventListener('click', () => stepImage(-1));
+document.getElementById('next').addEventListener('click', () => stepImage(1));
+dialog.addEventListener('keydown', event => { if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); stepImage(event.key === 'ArrowRight' ? 1 : -1); } });
+setLanguage(language);
