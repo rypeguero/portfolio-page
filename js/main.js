@@ -10,6 +10,17 @@ const projects = {
     images: [{src:'images/laura-live.jpg', caption:['Live homepage', 'Página de inicio actual'], alt:['Laura Taffur Beauty homepage with a portrait and service links', 'Inicio de Laura Taffur Beauty con retrato y enlaces a servicios']}],
     links: [{url:'https://laurataffurbeauty.com/', label:['Visit website ↗', 'Visitar sitio ↗']}]
   },
+  crm: {
+    title: 'Service Studio', category: ['Appointment app · In development', 'App de citas · En desarrollo'],
+    description: ['An appointment booking app I’m building, with a working form, Python backend, and database storage.', 'Una app de citas que estoy desarrollando, con formulario, backend en Python y almacenamiento en base de datos.'],
+    points: [
+      ['Built: service selection, future-date checks, and appointment requests saved in PostgreSQL.', 'Implementado: selección de servicios, validación de fechas futuras y solicitudes guardadas en PostgreSQL.'],
+      ['Next: a dashboard to view, approve, and decline requests.', 'Próximo paso: un panel para ver, aprobar y rechazar solicitudes.'],
+      ['Currently runs locally. Requests await confirmation; submitting one does not reserve a time slot.', 'Por ahora funciona de forma local. Las solicitudes requieren confirmación; enviarlas no reserva un horario.']
+    ],
+    images: [{src:'images/service-studio.jpg',caption:['Current front-end preview · In development','Vista actual del sitio · En desarrollo'],alt:['Service Studio booking homepage','Página de inicio para solicitar citas de Service Studio']}],
+    links: [{url:'https://github.com/rypeguero/crm-app',label:['Follow the build on GitHub ↗','Ver el desarrollo en GitHub ↗']}]
+  },
   travlr: {
     title:'Travlr Getaways', category:['University project', 'Proyecto universitario'],
     description:['A travel website with a separate area to manage trips.', 'Un sitio de viajes con un área independiente para gestionar los destinos.'],

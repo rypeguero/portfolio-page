@@ -10,3 +10,5 @@ dialog{color:var(--ink);background:#101215;border:1px solid #3a3f45;border-radiu
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.card:hover,.primary:hover{transform:none}.project-open:hover .preview>img{transform:none}}
 
 .lab-preview{aspect-ratio:2.4;padding:12px;background:#181c22;border-bottom:1px solid var(--line)}.lab-preview>img{object-fit:contain;object-position:center;border-radius:5px}.lab-card .card-body{padding-top:23px}@media(max-width:720px){.intro img{width:96px;height:96px}.lab-preview{aspect-ratio:2.2}}
+
+.developing{color:#f4cc86}.developing::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:7px}
