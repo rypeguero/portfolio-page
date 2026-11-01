@@ -26,23 +26,23 @@ jobs:
           from pathlib import Path
 
           W, H = 1200, 630
-          canvas = Image.new('RGB', (W, H), '#08090b')
+          canvas = Image.new('RGB', (W, H), '#0b1220')
           draw = ImageDraw.Draw(canvas)
           def font(size, bold=False):
               path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
               return ImageFont.truetype(path, size)
-          draw.rounded_rectangle((36, 28, 1164, 604), radius=22, outline='#272b30', width=2)
+          draw.rounded_rectangle((36, 28, 1164, 604), radius=22, outline='#273244', width=2)
           headshot = Image.open('images/avatar.jpg').convert('RGB')
           photo = ImageOps.fit(headshot, (162, 162), centering=(0.5, 0.28))
           mask = Image.new('L', (162,162), 0)
           ImageDraw.Draw(mask).ellipse((0,0,161,161), fill=255)
           canvas.paste(photo, (83, 75), mask)
-          draw.ellipse((82,74,245,237), outline='#d4fa79', width=3)
-          draw.text((280,95), 'Ryan Peguero', font=font(41, True), fill='#f2f3f1')
-          draw.text((283,159), 'Developer  |  English / Español', font=font(24), fill='#a1a6ad')
-          draw.text((77,280), 'Real ideas.', font=font(108, True), fill='#f2f3f1', stroke_width=0)
-          draw.text((77,397), 'Made to work.', font=font(104, True), fill='#d4fa79', stroke_width=0)
-          draw.text((82,550), 'Websites, web apps, and a curiosity for security.', font=font(20), fill='#a1a6ad')
+          draw.ellipse((82,74,245,237), outline='#60a5fa', width=3)
+          draw.text((280,95), 'Ryan Peguero', font=font(41, True), fill='#f4f7fb')
+          draw.text((283,159), 'Developer  |  English / Español', font=font(24), fill='#94a3b8')
+          draw.text((77,280), 'Real ideas.', font=font(108, True), fill='#f4f7fb', stroke_width=0)
+          draw.text((77,397), 'Made to work.', font=font(104, True), fill='#60a5fa', stroke_width=0)
+          draw.text((82,550), 'Websites, web apps, and a curiosity for security.', font=font(20), fill='#94a3b8')
           Path('images').mkdir(exist_ok=True)
           canvas.save('images/social-preview.png', optimize=True)
           PY
