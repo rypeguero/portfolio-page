@@ -1,0 +1,57 @@
+name: Build portfolio social preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/build-social-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  social-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate share image using existing portfolio headshot
+        run: |
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont, ImageOps
+          from pathlib import Path
+
+          W, H = 1200, 630
+          canvas = Image.new('RGB', (W, H), '#08090b')
+          draw = ImageDraw.Draw(canvas)
+          def font(size, bold=False):
+              path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+              return ImageFont.truetype(path, size)
+          draw.rounded_rectangle((36, 28, 1164, 604), radius=22, outline='#272b30', width=2)
+          headshot = Image.open('images/avatar.jpg').convert('RGB')
+          photo = ImageOps.fit(headshot, (162, 162), centering=(0.5, 0.28))
+          mask = Image.new('L', (162,162), 0)
+          ImageDraw.Draw(mask).ellipse((0,0,161,161), fill=255)
+          canvas.paste(photo, (83, 75), mask)
+          draw.ellipse((82,74,245,237), outline='#d4fa79', width=3)
+          draw.text((280,95), 'Ryan Peguero', font=font(41, True), fill='#f2f3f1')
+          draw.text((283,159), 'Developer  |  English / Español', font=font(24), fill='#a1a6ad')
+          draw.text((77,280), 'Real ideas.', font=font(108, True), fill='#f2f3f1', stroke_width=0)
+          draw.text((77,397), 'Made to work.', font=font(104, True), fill='#d4fa79', stroke_width=0)
+          draw.text((82,550), 'Websites, web apps, and a curiosity for security.', font=font(20), fill='#a1a6ad')
+          Path('images').mkdir(exist_ok=True)
+          canvas.save('images/social-preview.png', optimize=True)
+          PY
+      - name: Commit generated social preview
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/social-preview.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Add portfolio hero social preview [skip ci]"
+            git push
+          fi
