@@ -11,15 +11,15 @@ const projects = {
     links: [{url:'https://laurataffurbeauty.com/', label:['Visit website ↗', 'Visitar sitio ↗']}]
   },
   crm: {
-    title: 'Service Studio', category: ['Appointment app · In development', 'App de citas · En desarrollo'],
-    description: ['An appointment booking app I’m building, with a working form, Python backend, and database storage.', 'Una app de citas que estoy desarrollando, con formulario, backend en Python y almacenamiento en base de datos.'],
+    title: 'Service Studio', category: ['Appointment app · Working prototype', 'App de citas · Prototipo funcional'],
+    description: ['Built an end-to-end appointment request workflow for small service businesses, connecting a responsive booking page to a Python backend and PostgreSQL database.', 'Desarrollé un flujo completo de solicitudes de citas para pequeños negocios de servicios, conectando una página adaptable con un backend en Python y una base de datos PostgreSQL.'],
     points: [
-      ['Built: service selection, future-date checks, and appointment requests saved in PostgreSQL.', 'Implementado: selección de servicios, validación de fechas futuras y solicitudes guardadas en PostgreSQL.'],
-      ['Next: a dashboard to view, approve, and decline requests.', 'Próximo paso: un panel para ver, aprobar y rechazar solicitudes.'],
-      ['Currently runs locally. Requests await confirmation; submitting one does not reserve a time slot.', 'Por ahora funciona de forma local. Las solicitudes requieren confirmación; enviarlas no reserva un horario.']
+      ['Customers select a service and request a date and time through a responsive form.', 'Los clientes eligen un servicio y solicitan fecha y hora mediante un formulario adaptable.'],
+      ['FastAPI validates future appointment times and stores requests in PostgreSQL with pending confirmation status.', 'FastAPI valida las fechas futuras y guarda las solicitudes en PostgreSQL con estado pendiente de confirmación.'],
+      ['Designed to reduce repetitive booking messages and keep requests organized. The working prototype runs locally; confirmation is not automated.', 'Diseñado para reducir mensajes repetitivos y organizar solicitudes. El prototipo funcional corre localmente; la confirmación no es automática.']
     ],
-    images: [{src:'images/service-studio.jpg?v=2',caption:['Current front-end preview · In development','Vista actual del sitio · En desarrollo'],alt:['Service Studio booking homepage','Página de inicio para solicitar citas de Service Studio']}],
-    links: [{url:'https://github.com/rypeguero/crm-app',label:['Follow the build on GitHub ↗','Ver el desarrollo en GitHub ↗']}]
+    images: [{src:'images/service-studio.jpg?v=2',caption:['Working appointment interface · Local prototype','Interfaz funcional de citas · Prototipo local'],alt:['Service Studio booking homepage','Página de inicio para solicitar citas de Service Studio']}],
+    links: [{url:'https://github.com/rypeguero/crm-app',label:['View code on GitHub ↗','Ver código en GitHub ↗']}]
   },
   travlr: {
     title:'Travlr Getaways', category:['University project', 'Proyecto universitario'],
